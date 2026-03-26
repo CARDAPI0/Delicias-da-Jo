@@ -96,6 +96,14 @@ cartTotal.textContent = total.toLocaleString("pt-br",{style:"currency", currency
 const totalItems = cart.reduce((total, item) => {
     return total + item.quantity;
 }, 0);
+const corDoCarro = document.querySelector("#cor-carrinho")
+if(totalItems >0){
+    corDoCarro.classList.remove("bg-red-500")
+    corDoCarro.classList.add("bg-green-500")
+
+}else{
+    corDoCarro.classList.add("bg-red-500")
+    corDoCarro.classList.remove("bg-green-500")}
 
 cartCounter.innerHTML = totalItems;
 
