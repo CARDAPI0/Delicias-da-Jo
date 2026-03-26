@@ -7,8 +7,7 @@ const checkoutBtnLocal = document.getElementById("checkout-btn-local")// finaliz
 const checkoutBtn = document.getElementById("checkout-btn")// finalizar o pedido delivery
 const closeModalBtn = document.getElementById("close-modal-btn")// fechar
 const cartCounter = document.getElementById("cart-count") //quantidade do carrinho
-const addressInput = document.getElementById("address") // endereço
-const addressWarn = document.getElementById("address-warn")
+
 
 let cart =[]
 
@@ -127,14 +126,6 @@ function removeItemcart(name){
     }
 }
 
-    addressInput.addEventListener("input", function(event){
-        let inputValue = event.target.value
-        if(inputValue!== ""){
-            addressInput.classList.remove("border-red-500")
-            addressWarn.classList.add("hidden")
-        }
-        
-    })
 
 //Finalizar Pedido local
     checkoutBtnLocal.addEventListener("click", function(){
@@ -144,23 +135,8 @@ function removeItemcart(name){
         total += item.price * item.quantity;
     });
 
-   /* const isOpen = checkRestauranOpen()
-        if(!isOpen){
-        Toastify({
-            text: "Ops! O restaurante está fechado",
-            duration: 3000,
-            close: true,
-            gravity: "top", // `top` ou `bottom`
-            position: "right", // `left`, `center` ou `right`
-            stopOnFocus: true,
-            style: {
-                background: "#ef4444",
-                zIndex: 9999,  // garante que fique acima de outros elementos
-            },
-        }).showToast();
-            return
-        }*/
-        if(cart.length ===0 || cart.length === "") 
+
+        if(cart.length ===0) 
             return Toastify({
                         text: "Insira itens no carrinho",
                         duration: 3000,
@@ -185,77 +161,7 @@ function removeItemcart(name){
         cart =[]
         updateCartModal()
     })
-
-//Finalizar Pedido delivery
-/*
-
-    checkoutBtn.addEventListener("click", function(){
-         let total = 0;
-
-    cart.forEach(item => {
-        total += item.price * item.quantity;
-    });
-
-    const isOpen = checkRestauranOpen()
-        if(!isOpen){
-        Toastify({
-            text: "Ops! O restaurante está fechado",
-            duration: 3000,
-            close: true,
-            gravity: "top", // `top` ou `bottom`
-            position: "right", // `left`, `center` ou `right`
-            stopOnFocus: true,
-            style: {
-                background: "#ef4444",
-                zIndex: 9999,  // garante que fique acima de outros elementos
-            },
-        }).showToast();
-            return
-        }
-        if(cart.length ===0) 
-            return Toastify({
-                        text: "Insira itens no carrinho",
-                        duration: 3000,
-                        close: true,
-                        gravity: "top", // `top` ou `bottom`
-                        position: "right", // `left`, `center` ou `right`
-                        stopOnFocus: true,
-                        style: {
-                            background: "#ef4444",
-                            zIndex: 9999,  // garante que fique acima de outros elementos
-                        },
-                    }).showToast()
-
-        if(addressInput.value ===""){
-            addressWarn.classList.remove("hidden")
-            addressInput.classList.add("border-red-500")
-            return
-        }
-
-        //Enviar pedido para Api whats
-        const mensagem = gerarMensagemWhatsapp();
-        const message = encodeURIComponent(mensagem);
-
-        const phone = "37991245041"
-        let cidade = document.querySelector('#cidade').value
-
-        if(cidade === "Turilandia" ){
-             window.open(`https://wa.me/${phone}?text=Olá, gostaria de fazer o pedido:\n${message}%0ACidade:${cidade}%0ATaxa de Entrega 2,00%0AVL.Produto:${total.toFixed(2)}%0ATotal:R$${(2+Number(total)).toFixed(2)} `, "_blank")
-
-        }else{
-             window.open(`https://wa.me/${phone}?text=Olá, gostaria de fazer o pedido:\n${message}%0ACidade:${cidade}%0ATaxa de Entrega 5,00%0AVL.Produto:${total.toFixed(2)}%0ATotal:R$${(5+Number(total)).toFixed(2)} `, "_blank")
-
-        }
-
-       
-        cart =[]
-        updateCartModal()
-
-
-
-
-    })
-    */
+    
 
 
 
@@ -268,9 +174,9 @@ function gerarMensagemWhatsapp() {
         )
         .join("");
 
-    const endereco = `Endereço: ${addressInput.value}`;
+   
 
-     return `${itens}\n\n${endereco}`;
+     return `${itens}\n`;
 }
 
 
