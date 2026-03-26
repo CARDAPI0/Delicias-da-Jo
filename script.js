@@ -160,7 +160,7 @@ function removeItemcart(name){
         }).showToast();
             return
         }*/
-        if(cart.length ===0) 
+        if(cart.length ===0 || cart.length === "") 
             return Toastify({
                         text: "Insira itens no carrinho",
                         duration: 3000,
@@ -178,7 +178,7 @@ function removeItemcart(name){
         const mensagem = gerarMensagemWhatsapp();
         const message = encodeURIComponent(mensagem);
 
-        const phone = "98970016960"
+        const phone = "37991245041"
 
         window.open(`https://wa.me/${phone}?text=Olá, gostaria de fazer o pedido:\n${message}%0A[Retirada no Local]%0ATotal:${total.toFixed(2)}`, "_blank")
 
@@ -187,6 +187,8 @@ function removeItemcart(name){
     })
 
 //Finalizar Pedido delivery
+/*
+
     checkoutBtn.addEventListener("click", function(){
          let total = 0;
 
@@ -194,7 +196,7 @@ function removeItemcart(name){
         total += item.price * item.quantity;
     });
 
-   /* const isOpen = checkRestauranOpen()
+    const isOpen = checkRestauranOpen()
         if(!isOpen){
         Toastify({
             text: "Ops! O restaurante está fechado",
@@ -209,7 +211,7 @@ function removeItemcart(name){
             },
         }).showToast();
             return
-        }*/
+        }
         if(cart.length ===0) 
             return Toastify({
                         text: "Insira itens no carrinho",
@@ -234,7 +236,7 @@ function removeItemcart(name){
         const mensagem = gerarMensagemWhatsapp();
         const message = encodeURIComponent(mensagem);
 
-        const phone = "98970016960"
+        const phone = "37991245041"
         let cidade = document.querySelector('#cidade').value
 
         if(cidade === "Turilandia" ){
@@ -253,6 +255,7 @@ function removeItemcart(name){
 
 
     })
+    */
 
 
 
