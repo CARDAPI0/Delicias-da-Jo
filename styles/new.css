@@ -1,7 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 .fundo{
     background-image: url("../img/background.png");
     background-position: top center;
     background-repeat: no-repeat;
     background-size: cover;
 
+}
+.fonte-header{
+ font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
