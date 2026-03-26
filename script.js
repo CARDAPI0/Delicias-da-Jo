@@ -36,6 +36,10 @@ menu.addEventListener("click",function(event){
     if(parentButton){
         const name = parentButton.getAttribute("data-name")
         const price = Number(parentButton.getAttribute("data-price"))
+        parentButton.style.backgroundColor = "green"
+        setTimeout(() => {
+            parentButton.style.backgroundColor = ""
+        }, 200)
         
         //Adicionar no carrinho
         addTocart(name,price)
