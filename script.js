@@ -39,7 +39,7 @@ menu.addEventListener("click",function(event){
         parentButton.style.backgroundColor = "green"
         setTimeout(() => {
             parentButton.style.backgroundColor = ""
-        }, 200)
+        }, 500)
         
         //Adicionar no carrinho
         addTocart(name,price)
